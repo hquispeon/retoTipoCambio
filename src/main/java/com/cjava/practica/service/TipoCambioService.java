@@ -8,27 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cjava.practica.model.Historial;
+import com.cjava.practica.model.Tipocambio;
 import com.cjava.practica.repository.HistorialRepository;
+import com.cjava.practica.repository.TipoCambioRepository;
 
 @Service
 @Transactional
 public class TipoCambioService {
 	@Autowired
-	HistorialRepository historialRepo;
+	TipoCambioRepository tipoCambioRepo;
 	
-	public List<Historial> listAll(){
-		return historialRepo.findAll();
+	public List<Tipocambio> listAll(){
+		return tipoCambioRepo.findAll();
 	}
 	
-	public void save(Historial historial) {
-		historialRepo.save(historial);
+	public void save(Tipocambio tipoCambio) {
+		tipoCambioRepo.save(tipoCambio);
 	}
 	
-	public Historial get(String id_historial) {
-		return historialRepo.findById(id_historial).get();
+	public Tipocambio get(String id_tipoCambio) {
+		return tipoCambioRepo.findById(id_tipoCambio).get();
 	}
 	
 	public void delete(String id_historial) {
-		historialRepo.deleteById(id_historial);
+		tipoCambioRepo.deleteById(id_historial);
 	}
 }

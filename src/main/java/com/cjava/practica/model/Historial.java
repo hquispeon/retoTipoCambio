@@ -1,6 +1,7 @@
 package com.cjava.practica.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,11 +36,12 @@ public class Historial implements Serializable{
 	@Column(name = "moneda_des")
 	private String moneda_des;
 	@Column(name = "monto")
-	private String moneda;
+	private String monto;
 	@Column(name = "monto_cambio")
-	private String moneda_cambio;
+	private String monto_cambio;
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "fecha")
-	private String fecha;
+	private Date fecha;
 	
 	public Historial() {
 		
