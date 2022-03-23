@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "18b652b7-e5a4-4a3c-a9b9-83dd18d76a1f",
+		"name": "RetoTipoCambio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "001ConsultaHealthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/user/healthcheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"user",
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "002UserConsulta",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDgwOTIxNjEsImlhdCI6MTY0ODA3NDE2MX0.qDz3vCOYR7aqW6-PbitFRq93_NB77NV9LtT4ZEKaRavEAPFm-RNXpEIJRDArWQ7VPUdLZcigocNPV1lh7Vjn1w",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8182/user/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"user",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "003UserConsultaId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/user/usuario/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"user",
+						"usuario",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "004UserAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_user\": \"1\",\r\n    \"nombre\": \"Juan Carlos\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/user/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"user",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "005UserUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_user\": \"1\",\r\n    \"nombre\": \"Carlos Juan\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/user/usuario/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"user",
+						"usuario",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "006UserDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/user/usuario/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"user",
+						"usuario",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "007TipoCambioConsulta",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDgwOTIxNjEsImlhdCI6MTY0ODA3NDE2MX0.qDz3vCOYR7aqW6-PbitFRq93_NB77NV9LtT4ZEKaRavEAPFm-RNXpEIJRDArWQ7VPUdLZcigocNPV1lh7Vjn1w",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8182/tipocambio/tipocambios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"tipocambio",
+						"tipocambios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "008TipoCambioConsultaId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/tipocambio/tipocambio/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"tipocambio",
+						"tipocambio",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "009TipoCambioAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_tipocambio\": \"5\",\r\n    \"moneda_ori\": \"SOL\",\r\n    \"moneda_des\": \"SOL\",\r\n    \"monto\": \"4.14\",\r\n    \"usuario\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/tipocambio/tipocambio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"tipocambio",
+						"tipocambio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "010TipoCambioUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_tipocambio\": \"1\",\r\n    \"moneda_ori\": \"SOL\",\r\n    \"moneda_des\": \"USD\",\r\n    \"monto\": \"0.29\",\r\n    \"usuario\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/tipocambio/tipocambio/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"tipocambio",
+						"tipocambio",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "011TipoCambioDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/tipocambio/tipocambio/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"tipocambio",
+						"tipocambio",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "012ChangeConsulta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/change/cambios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"change",
+						"cambios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "013ChangeConsultaId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/change/cambio/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"change",
+						"cambio",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "014ChangeAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_historial\": \"3\",\r\n    \"id_tipocambio\": \"1\",\r\n    \"id_user\": \"1\",\r\n    \"moneda_ori\": \"SOL\",\r\n    \"moneda_des\": \"USD\",\r\n    \"monto\": \"100\",\r\n    \"monto_cambio\": \"29\",\r\n    \"fecha\": \"2022-03-23T14:45:50.000+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/change/cambio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"change",
+						"cambio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "015ChangeUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id_historial\": \"1\",\r\n        \"id_tipocambio\": \"1\",\r\n        \"id_user\": \"1\",\r\n        \"moneda_ori\": \"SOL\",\r\n        \"moneda_des\": \"USD\",\r\n        \"monto\": \"200\",\r\n        \"monto_cambio\": \"58\",\r\n        \"fecha\": \"2022-03-23T14:45:50.000+00:00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/change/cambio/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"change",
+						"cambio",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "016ChangeDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8182/change/cambio/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"change",
+						"cambio",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "017RetoCambio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDgwOTIxNjEsImlhdCI6MTY0ODA3NDE2MX0.qDz3vCOYR7aqW6-PbitFRq93_NB77NV9LtT4ZEKaRavEAPFm-RNXpEIJRDArWQ7VPUdLZcigocNPV1lh7Vjn1w",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8182/change/reto/2/1/300",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"change",
+						"reto",
+						"2",
+						"1",
+						"300"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autentificacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"javainuse\",\r\n    \"password\" : \"password\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8182/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8182",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
