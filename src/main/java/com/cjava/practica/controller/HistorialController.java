@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Observable;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -73,6 +75,10 @@ public class HistorialController {
 					BigDecimal montoLocal = new BigDecimal(monto);
 					if (montoLocal.compareTo(BigDecimal.ZERO) == 1) {
 						String id_historial = String.valueOf(new Random().nextInt());
+						// Random random = new Random();
+						// String id_historial = rx.Observable.just(random.nextInt());
+						
+						
 						String moneda_ori = tipoCambio.getMoneda_ori();
 						String moneda_des = tipoCambio.getMoneda_des();
 						BigDecimal monto_cambio = montoLocal.multiply(new BigDecimal(tipoCambio.getMonto()));
