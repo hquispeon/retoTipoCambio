@@ -39,20 +39,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/usuario/{id}")
-	public ResponseEntity<User> getUsuario(@PathVariable String id)
+	public Mono<User> getUsuario(@PathVariable String id)
 	{
+		/*
 		try {
 			User user = userService.get(id);
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}catch (NoSuchElementException e) {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
-	}
-	
-	@GetMapping("/usuarioFlux/{id}")
-	public Mono<User> getUsuarioFlux(@PathVariable String id)
-	{
-		return Mono.just(userService.get(id));
+		*/
+		
+		return userService.get(id);
 	}
 	
 	@PostMapping("/usuario")
@@ -61,7 +59,8 @@ public class UserController {
 	}
 	
 	@PutMapping("/usuario/{id}")
-	public ResponseEntity<?> update(@RequestBody User user, @PathVariable String id) {
+	public Mono<ResponseEntity<Void>> update(@RequestBody User user, @PathVariable String id) {
+		/*
 		try {
 			User userLocal = userService.get(id);
 			userService.save(user);
@@ -69,15 +68,32 @@ public class UserController {
 		}catch (NoSuchElementException e) {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
+		*/
+		
+		return userService.get(id)
+				.flatMap(userRecuperado -> {
+					userService.save(user);
+					return Mono.just(new ResponseEntity<Void>(HttpStatus.OK));
+				})
+				.defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NO_CONTENT));
 	}
 	
 	@DeleteMapping("/usuario/{id}")
-	public ResponseEntity<?> delete(@PathVariable String id) {
+	public Mono<ResponseEntity<Void>> delete(@PathVariable String id) {
+		/*
 		try {
 			userService.delete(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		}catch (NoSuchElementException e) {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
+		*/
+		
+		return userService.get(id)
+				.flatMap(userRecuperado -> {
+					userService.delete(id);
+					return Mono.just(new ResponseEntity<Void>(HttpStatus.OK));
+				})
+				.defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NO_CONTENT));
 	}
 }

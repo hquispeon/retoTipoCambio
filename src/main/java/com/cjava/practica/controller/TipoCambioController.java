@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cjava.practica.model.Tipocambio;
 import com.cjava.practica.service.TipoCambioService;
 
+import reactor.core.publisher.Mono;
+
 @RequestMapping(value = "/tipocambio/")
 @RestController
 public class TipoCambioController {
@@ -37,14 +39,17 @@ public class TipoCambioController {
 	}
 	
 	@GetMapping("/tipocambio/{id}")
-	public ResponseEntity<Tipocambio> getUsuario(@PathVariable String id)
+	public Mono<Tipocambio> getUsuario(@PathVariable String id)
 	{
+		/*
 		try {
 			Tipocambio tipoCambio = tipoCambioService.get(id);
 			return new ResponseEntity<Tipocambio>(tipoCambio, HttpStatus.OK);
 		}catch (NoSuchElementException e) {
 			return new ResponseEntity<Tipocambio>(HttpStatus.NOT_FOUND);
-		}
+		}}
+		*/
+		return tipoCambioService.get(id);
 	}
 	
 	@PostMapping("/tipocambio")
@@ -53,7 +58,8 @@ public class TipoCambioController {
 	}
 	
 	@PutMapping("/tipocambio/{id}")
-	public ResponseEntity<?> update(@RequestBody Tipocambio tipoCambio, @PathVariable String id) {
+	public Mono<ResponseEntity<Void>> update(@RequestBody Tipocambio tipoCambio, @PathVariable String id) {
+		/*
 		try {
 			Tipocambio tipoCambioLocal = tipoCambioService.get(id);
 			tipoCambioService.save(tipoCambio);
@@ -61,15 +67,32 @@ public class TipoCambioController {
 		}catch (NoSuchElementException e) {
 			return new ResponseEntity<Tipocambio>(HttpStatus.NOT_FOUND);
 		}
+		*/
+		
+		return tipoCambioService.get(id)
+				.flatMap(tipoCambioRecuperado -> {
+					tipoCambioService.save(tipoCambio);
+					return Mono.just(new ResponseEntity<Void>(HttpStatus.OK));
+				})
+				.defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NO_CONTENT));
 	}
 	
 	@DeleteMapping("/tipocambio/{id}")
-	public ResponseEntity<?> delete(@PathVariable String id) {
+	public Mono<ResponseEntity<Void>> delete(@PathVariable String id) {
+		/*
 		try {
 			tipoCambioService.delete(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		}catch (NoSuchElementException e) {
 			return new ResponseEntity<Tipocambio>(HttpStatus.NOT_FOUND);
 		}
+		*/
+		
+		return tipoCambioService.get(id)
+			.flatMap(tipoCambioRecuperado -> {
+				tipoCambioService.delete(id);
+				return Mono.just(new ResponseEntity<Void>(HttpStatus.OK));
+			})
+			.defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NO_CONTENT));
 	}
 }
