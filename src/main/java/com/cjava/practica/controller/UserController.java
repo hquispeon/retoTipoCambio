@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cjava.practica.model.User;
 import com.cjava.practica.service.UserService;
 
+import reactor.core.publisher.Mono;
+
 @RequestMapping(value = "/user/")
 @RestController
 public class UserController {
@@ -45,6 +47,12 @@ public class UserController {
 		}catch (NoSuchElementException e) {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	@GetMapping("/usuarioFlux/{id}")
+	public Mono<User> getUsuarioFlux(@PathVariable String id)
+	{
+		return Mono.just(userService.get(id));
 	}
 	
 	@PostMapping("/usuario")

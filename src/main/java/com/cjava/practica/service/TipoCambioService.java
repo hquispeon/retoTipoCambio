@@ -12,6 +12,8 @@ import com.cjava.practica.model.Tipocambio;
 import com.cjava.practica.repository.HistorialRepository;
 import com.cjava.practica.repository.TipoCambioRepository;
 
+import reactor.core.publisher.Mono;
+
 @Service
 @Transactional
 public class TipoCambioService {
@@ -26,8 +28,12 @@ public class TipoCambioService {
 		tipoCambioRepo.save(tipoCambio);
 	}
 	
-	public Tipocambio get(String id_tipoCambio) {
-		return tipoCambioRepo.findById(id_tipoCambio).get();
+	public Mono<Tipocambio> get(String id_tipoCambio) {
+		try {
+			return Mono.just(tipoCambioRepo.findById(id_tipoCambio).get());
+		} catch (Exception e) {
+			return Mono.empty();
+		}		
 	}
 	
 	public void delete(String id_historial) {
