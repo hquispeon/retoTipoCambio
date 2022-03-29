@@ -111,18 +111,29 @@ public class HistorialController {
 									
 									String moneda_ori = tipocambioRecuperado.getMoneda_ori();
 									String moneda_des = tipocambioRecuperado.getMoneda_des();
-									BigDecimal monto_cambio = montoLocal.multiply(new BigDecimal(tipocambioRecuperado.getMonto()));
-									monto_cambio = monto_cambio.setScale(2, BigDecimal.ROUND_UP);
-									String monto_final = monto_cambio.toString();
 									
-									Historial historialLocal = new Historial(id_historial, id_tipocambio, id_user, moneda_ori, moneda_des, monto, monto_final, new Date());
-									
-									historialService.save(historialLocal);
-									
-									Mono<Historial> historialLocal2 = historialService.get(id_historial);								
-									return Mono.just(ResponseEntity.ok()
-											.contentType(MediaType.APPLICATION_JSON)
-											.body(historialLocal2));
+									String montoRecuperado = tipocambioRecuperado.getMonto();
+									String tipoUser = userRecuperado.getTipo();
+									String tipoTipoCambio = tipocambioRecuperado.getTipo();
+									if (tipoUser.equals(tipoTipoCambio)) {
+										BigDecimal monto_cambio = montoLocal.multiply(new BigDecimal(tipocambioRecuperado.getMonto()));
+										monto_cambio = monto_cambio.setScale(2, BigDecimal.ROUND_UP);
+										String monto_final = monto_cambio.toString();
+										
+										Historial historialLocal = new Historial(id_historial, id_tipocambio, id_user, moneda_ori, moneda_des, monto, monto_final, new Date());
+										
+										historialService.save(historialLocal);
+										
+										Mono<Historial> historialLocal2 = historialService.get(id_historial);
+										return Mono.just(ResponseEntity.ok()
+												.contentType(MediaType.APPLICATION_JSON)
+												.body(historialLocal2));
+									} else {
+										// return Mono.just(new ResponseEntity<Historial>(HttpStatus.BAD_REQUEST));
+										return Mono.just(ResponseEntity.badRequest()
+												.contentType(MediaType.APPLICATION_JSON)
+												.body(Mono.empty()));
+									}
 									
 								} else {
 									// return Mono.just(new ResponseEntity<Historial>(HttpStatus.BAD_REQUEST));

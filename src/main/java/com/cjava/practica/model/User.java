@@ -28,6 +28,8 @@ public class User {
 	private String nombre;
 	@Column(name = "password")
 	private String password;
+	@Column(name = "tipo")
+	private String tipo;
 	
 	public User() {
 		

@@ -29,6 +29,8 @@ public class Tipocambio {
 	private String monto;
 	@Column(name = "usuario")
 	private String usuario;
+	@Column(name = "tipo")
+	private String tipo;
 	
 	public Tipocambio() {
 		

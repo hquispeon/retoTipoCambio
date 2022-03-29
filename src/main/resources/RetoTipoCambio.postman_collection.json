@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "18b652b7-e5a4-4a3c-a9b9-83dd18d76a1f",
+		"_postman_id": "c03c5660-a31e-418b-96be-23827f9876cd",
 		"name": "RetoTipoCambio",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDgwOTIxNjEsImlhdCI6MTY0ODA3NDE2MX0.qDz3vCOYR7aqW6-PbitFRq93_NB77NV9LtT4ZEKaRavEAPFm-RNXpEIJRDArWQ7VPUdLZcigocNPV1lh7Vjn1w",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg0NjQ2MTQsImlhdCI6MTY0ODQ0NjYxNH0.xQ7Tx7AKK6lpWiWrFEfBnr7CiWjz3eJmK30rd1NioOz9F5mgk_Xm8mtp1waUlXpiYjrXUj1L0fdoIw7Mf1CfLw",
 						"type": "default"
 					}
 				],
@@ -76,10 +76,16 @@
 			"name": "004UserAdd",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg1OTEyMTksImlhdCI6MTY0ODU3MzIxOX0.nwLbIVErIrQVwmRyB-ZBIpWg78tKOVtvDz34SDBe583hk4OKvWSP35F2A7yxjnh9EwiOPtmY6Hc2eWeoS2TlEQ",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_user\": \"1\",\r\n    \"nombre\": \"Juan Carlos\",\r\n    \"password\": \"123\"\r\n}",
+					"raw": "{\r\n    \"id_user\": \"5\",\r\n    \"nombre\": \"Persona preferencial\",\r\n    \"password\": \"123\",\r\n    \"tipo\": \"2\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -159,7 +165,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDgwOTIxNjEsImlhdCI6MTY0ODA3NDE2MX0.qDz3vCOYR7aqW6-PbitFRq93_NB77NV9LtT4ZEKaRavEAPFm-RNXpEIJRDArWQ7VPUdLZcigocNPV1lh7Vjn1w",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg0NjQ2MTQsImlhdCI6MTY0ODQ0NjYxNH0.xQ7Tx7AKK6lpWiWrFEfBnr7CiWjz3eJmK30rd1NioOz9F5mgk_Xm8mtp1waUlXpiYjrXUj1L0fdoIw7Mf1CfLw",
 						"type": "default"
 					}
 				],
@@ -203,10 +209,16 @@
 			"name": "009TipoCambioAdd",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg1OTEyMTksImlhdCI6MTY0ODU3MzIxOX0.nwLbIVErIrQVwmRyB-ZBIpWg78tKOVtvDz34SDBe583hk4OKvWSP35F2A7yxjnh9EwiOPtmY6Hc2eWeoS2TlEQ",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_tipocambio\": \"5\",\r\n    \"moneda_ori\": \"SOL\",\r\n    \"moneda_des\": \"SOL\",\r\n    \"monto\": \"4.14\",\r\n    \"usuario\": \"2\"\r\n}",
+					"raw": "{\r\n        \"id_tipocambio\": \"7\",\r\n        \"moneda_ori\": \"SOL\",\r\n        \"moneda_des\": \"USD\",\r\n        \"monto\": \"0.30\",\r\n        \"usuario\": \"2\",\r\n        \"tipo\": \"2\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -232,10 +244,16 @@
 			"name": "010TipoCambioUpdate",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg1OTEyMTksImlhdCI6MTY0ODU3MzIxOX0.nwLbIVErIrQVwmRyB-ZBIpWg78tKOVtvDz34SDBe583hk4OKvWSP35F2A7yxjnh9EwiOPtmY6Hc2eWeoS2TlEQ",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_tipocambio\": \"1\",\r\n    \"moneda_ori\": \"SOL\",\r\n    \"moneda_des\": \"USD\",\r\n    \"monto\": \"0.29\",\r\n    \"usuario\": \"2\"\r\n}",
+					"raw": "{\r\n        \"id_tipocambio\": \"1\",\r\n        \"moneda_ori\": \"SOL\",\r\n        \"moneda_des\": \"USD\",\r\n        \"monto\": \"0.29\",\r\n        \"usuario\": \"2\",\r\n        \"tipo\": \"1\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -283,7 +301,13 @@
 			"name": "012ChangeConsulta",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg0NjQ2MTQsImlhdCI6MTY0ODQ0NjYxNH0.xQ7Tx7AKK6lpWiWrFEfBnr7CiWjz3eJmK30rd1NioOz9F5mgk_Xm8mtp1waUlXpiYjrXUj1L0fdoIw7Mf1CfLw",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8182/change/cambios",
 					"protocol": "http",
@@ -303,9 +327,15 @@
 			"name": "013ChangeConsultaId",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg0NjQ2MTQsImlhdCI6MTY0ODQ0NjYxNH0.xQ7Tx7AKK6lpWiWrFEfBnr7CiWjz3eJmK30rd1NioOz9F5mgk_Xm8mtp1waUlXpiYjrXUj1L0fdoIw7Mf1CfLw",
+						"type": "default"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8182/change/cambio/1",
+					"raw": "http://localhost:8182/change/cambio/-1597631445",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -314,7 +344,14 @@
 					"path": [
 						"change",
 						"cambio",
-						"1"
+						"-1597631445"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -424,7 +461,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDgwOTIxNjEsImlhdCI6MTY0ODA3NDE2MX0.qDz3vCOYR7aqW6-PbitFRq93_NB77NV9LtT4ZEKaRavEAPFm-RNXpEIJRDArWQ7VPUdLZcigocNPV1lh7Vjn1w",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NDg0NjQ2MTQsImlhdCI6MTY0ODQ0NjYxNH0.xQ7Tx7AKK6lpWiWrFEfBnr7CiWjz3eJmK30rd1NioOz9F5mgk_Xm8mtp1waUlXpiYjrXUj1L0fdoIw7Mf1CfLw",
 						"type": "default"
 					}
 				],
